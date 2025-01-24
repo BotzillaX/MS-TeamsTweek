@@ -1,8 +1,8 @@
-import time
-import threading
+from time import sleep
+from threading import Thread
 from keyboard import press_and_release
 
-import pystray
+from pystray import Icon
 from pystray import MenuItem as item
 from PIL import Image, ImageDraw
 
@@ -31,12 +31,12 @@ def AlwaysActive():
         press_and_release("F18")
         press_and_release("F19")
         print("[DEBUG] Sleeping for 60 seconds.")
-        time.sleep(60)
+        sleep(60)
     print("[DEBUG] AlwaysActive() has been stopped by user action.")
 
 def run_tray_icon():
     print("[DEBUG] run_tray_icon() called - creating tray icon.")
-    icon = pystray.Icon(
+    icon = Icon(
         "AlwaysActive",          # internal name
         create_image(),          # tray icon image
         "AlwaysActive Script",   # tooltip (hover text)
@@ -53,7 +53,7 @@ def run_tray_icon():
 
 if __name__ == "__main__":
     print("[DEBUG] Main started - launching AlwaysActive() in a separate thread.")
-    loop_thread = threading.Thread(target=AlwaysActive)
+    loop_thread = Thread(target=AlwaysActive)
     loop_thread.start()
     run_tray_icon()
     loop_thread.join()

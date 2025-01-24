@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['C:\\Users\\KevinFritsch\\Documents\\Python-Projekte\\abwesend\\TeamsTweek.py'],
+    ['C:\\Users\\KevinFritsch\\Documents\\Python-Projekte\\abwesend\\MS-TeamsTweek\\TeamsTweek.py'],
     pathex=[],
     binaries=[],
     datas=[],

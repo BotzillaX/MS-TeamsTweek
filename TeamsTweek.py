@@ -1,10 +1,28 @@
 from time import sleep
 from threading import Thread
 from keyboard import press_and_release
-
 from pystray import Icon
 from pystray import MenuItem as item
 from PIL import Image, ImageDraw
+from os import path
+
+
+
+
+script_directory = path.dirname(path.abspath(__file__))
+file_name = "Key.txt"
+file_path = path.join(script_directory, file_name)
+try:
+    with open(file_path, "r") as file:
+        file_contents = file.read()
+        print("Contents of the file:")
+        print(file_contents)
+except FileNotFoundError:
+    print(f"The file '{file_name}' does not exist in the script's directory")
+except Exception as e:
+    print({e})
+
+
 
 stop_loop = False
 
@@ -28,8 +46,8 @@ def AlwaysActive():
     global stop_loop
     while not stop_loop:
         print("[DEBUG] Pressing F18 and F19.")
-        press_and_release("F18")
-        press_and_release("F19")
+        press_and_release(file_contents)
+        press_and_release(file_contents)
         print("[DEBUG] Sleeping for 60 seconds.")
         sleep(60)
     print("[DEBUG] AlwaysActive() has been stopped by user action.")

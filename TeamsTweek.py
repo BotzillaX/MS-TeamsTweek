@@ -45,8 +45,7 @@ def AlwaysActive():
     print("[DEBUG] AlwaysActive() started.")
     global stop_loop
     while not stop_loop:
-        print("[DEBUG] Pressing F18 and F19.")
-        press_and_release(file_contents)
+        print("F19.")
         press_and_release(file_contents)
         print("[DEBUG] Sleeping for 60 seconds.")
         sleep(60)
